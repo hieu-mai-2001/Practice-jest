@@ -5,7 +5,7 @@
  */
 
 /**
- * @returns {Promise<User[]>} A promist to list of players
+ * @returns {Promise<User[]>} A promise to list of players
  */
 export const getAllPlayers = () => {
   /* pseudo code
