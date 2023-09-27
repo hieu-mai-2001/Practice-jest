@@ -1,11 +1,34 @@
-describe('newColor()', () => {
-  it('should return a color', () => {
-    // TODO: implement test
+import * as helper from "./helper";
+import RandomColor from "./RandomColor";
+
+const updateHelperMock = jest.spyOn(helper, "getRandomInt");
+const colors = ["red", "green", "blue"];
+
+describe("newColor()", () => {
+  it("should return a color", () => {
+    const randomColor = new RandomColor();
+    updateHelperMock.mockReturnValue(0);
+
+    expect(randomColor.newColor()).toBe(colors[0]);
   });
 });
 
 describe('when calling "newColor()" multiple times', () => {
-  it('should return different colors', () => {
-    // TODO: implement test
+  it("should return different colors", () => {
+    updateHelperMock.mockReturnValueOnce(0);
+
+    const randomColor = new RandomColor();
+    const firstColor = randomColor.newColor();
+    const secondColor = randomColor.newColor();
+
+    console.log(
+      "============firstColor",
+      firstColor,
+      "==================",
+      secondColor,
+      "============"
+    );
+
+    expect(secondColor).not.toBe(colors[0]);
   });
 });

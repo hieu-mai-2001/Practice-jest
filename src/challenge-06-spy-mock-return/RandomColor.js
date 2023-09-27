@@ -1,4 +1,4 @@
-import { getRandomInt } from './helper';
+import { getRandomInt } from "./helper";
 
 export default class RandomColor {
   constructor() {
@@ -8,21 +8,22 @@ export default class RandomColor {
   newColor() {
     const colors = RandomColor.colors;
     const index = getRandomInt(0, colors.length - 1);
+    // console.log("index===>", index);
     let color = colors[index];
     if (this.generatedColors.includes(color)) {
       return this.newColor();
     }
-  
+
     this.generatedColors.push(color);
-    if (this.generatedColors.length  === colors.length - 1) {
+    if (this.generatedColors.length === colors.length - 1) {
       this.generatedColors.shift();
     }
-  
+
     return color;
   }
 }
 
-RandomColor.colors = ['red', 'green', 'blue'];
+RandomColor.colors = ["red", "green", "blue"];
 
 // const generatedFruits = [];
 // export const fruits = ['apple', 'babana', 'orange'];
