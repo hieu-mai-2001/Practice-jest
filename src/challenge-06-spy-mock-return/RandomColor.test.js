@@ -10,6 +10,8 @@ describe("newColor()", () => {
     updateHelperMock.mockReturnValue(0);
 
     expect(randomColor.newColor()).toBe(colors[0]);
+
+    updateHelperMock.mockRestore();
   });
 });
 
@@ -21,14 +23,8 @@ describe('when calling "newColor()" multiple times', () => {
     const firstColor = randomColor.newColor();
     const secondColor = randomColor.newColor();
 
-    console.log(
-      "============firstColor",
-      firstColor,
-      "==================",
-      secondColor,
-      "============"
-    );
-
     expect(secondColor).not.toBe(colors[0]);
+
+    updateHelperMock.mockRestore();
   });
 });
