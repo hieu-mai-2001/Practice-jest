@@ -8,7 +8,6 @@ export default class RandomColor {
   newColor() {
     const colors = RandomColor.colors;
     const index = getRandomInt(0, colors.length - 1);
-    // console.log("index===>", index);
     let color = colors[index];
     if (this.generatedColors.includes(color)) {
       return this.newColor();
